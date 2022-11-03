@@ -13,6 +13,7 @@ export class SampleInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    console.log('HERE IS INTERCEPTOR', request, next);
     return next.handle(request);
   }
 }
