@@ -1,0 +1,7 @@
+.mat-menu-panel {
+  &.notifications-menu {
+    width: 500px;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+}
