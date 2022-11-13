@@ -1,0 +1,8 @@
+<app-sidebar (toggleSidebar)="open = !open" [isSidebarOpen]="open">
+  <main id="content">
+    <app-navbar (openSidebar)="open = !open"></app-navbar>
+    <div class="outlet-content">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</app-sidebar>

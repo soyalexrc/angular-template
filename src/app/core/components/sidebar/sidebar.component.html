@@ -1,0 +1,48 @@
+<mat-drawer-container autosize (backdropClick)="toggleSidebar.emit()">
+  <mat-drawer class="drawer" [mode]=" isSmallScreen() ? 'over' : 'side' "
+              [opened]="isSidebarOpen">
+    <div class="drawer-header">
+      <img src="assets/img/renzito-logo.png" width="75px" height="75px" alt="">
+      <h1>Renzitos babys</h1>
+    </div>
+    <mat-divider class="divider"></mat-divider>
+    <div>
+      <div
+        class="menu-item"
+        *ngFor="let route of menuItems, index as i"
+        [ngClass]="{'selected': currentRoute === route.path}"
+        (click)="goTo(route.path)"
+      >
+        <img [src]="route.icon" width="20px" alt="">
+        <p>{{route.title}}</p>
+      </div>
+      <div
+        class="menu-item between"
+        [ngClass]="{'selected': currentRoute === '/pedidos'}"
+        (click)="goTo('/pedidos')"
+      >
+        <div class="with-badge">
+          <img src="assets/icons/orders-icon.png" width="20px" alt="">
+          <p>Pedidos</p>
+        </div>
+        <div matBadge="5" matBadgeColor="warn" class="badge"></div>
+      </div>
+      <div
+        class="menu-item between"
+        [ngClass]="{'selected': currentRoute === '/mensajes'}"
+        (click)="goTo('/mensajes')"
+      >
+        <div class="with-badge">
+          <img src="assets/icons/messages-icon.png" width="20px" alt="">
+          <p>Mensajes</p>
+        </div>
+        <div matBadge="10" matBadgeColor="warn" class="badge"></div>
+      </div>
+    </div>
+  </mat-drawer>
+
+  <div class="main-content">
+    <ng-content></ng-content>
+  </div>
+
+</mat-drawer-container>
