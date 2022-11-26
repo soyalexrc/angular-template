@@ -12,4 +12,15 @@ export class ExternalServicesListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goToDetail() {
+    alert('detalle de servicio');
+  }
+
+  deleteExternalService() {
+    alert('Delete external service');
+  }
+
+  createExternalService() {
+    alert('create external service')
+  }
 }

@@ -6,6 +6,12 @@ import {SharedModule} from "../../shared/shared.module";
 import {ProvidersListComponent} from "./pages/providers-list/providers-list.component";
 import {ProviderRegisterComponent} from "./pages/provider-register/provider-register.component";
 import {ProviderEditComponent} from "./pages/provider-edit/provider-edit.component";
+import {ProvidersTableComponent} from "./components/providers-table/providers-table.component";
+import {MatTableModule} from "@angular/material/table";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -13,11 +19,17 @@ import {ProviderEditComponent} from "./pages/provider-edit/provider-edit.compone
     ScopedComponentBComponent,
     ProvidersListComponent,
     ProviderRegisterComponent,
-    ProviderEditComponent
+    ProviderEditComponent,
+    ProvidersTableComponent
   ],
   imports: [
     SharedModule,
     ProvidersRoutingModule,
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
+    MatPaginatorModule,
   ],
 })
 export class ProvidersModule { }

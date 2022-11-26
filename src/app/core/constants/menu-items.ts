@@ -25,14 +25,14 @@ const MENU_ITEMS = [
     path: '/proveedores',
   },
   {
-    title: 'Estadisticas',
-    icon: 'assets/icons/statistics-icon.png',
-    path: '/estadisticas',
-  },
-  {
     title: 'Servicios externos',
     icon: 'assets/icons/services-icon.png',
     path: '/servicios-externos',
+  },
+  {
+    title: 'Estadisticas',
+    icon: 'assets/icons/statistics-icon.png',
+    path: '/estadisticas',
   },
   {
     title: 'Configuracion',

@@ -1,1 +1,14 @@
-<p>providers-list works!</p>
+<div class="p-5">
+  <app-content-table-header [amount]="250" [title]="'Proveedores'" [description]="'Proveedores registrados'" ></app-content-table-header>
+
+  <app-search-bar [title]="'Buscar proveedor'"
+                  [placeholder]="'Buscar por nombre, correo electronico, telefono, ciudad...'">
+    <app-create-button [buttonTitle]="'Nuevo Proveedor'" (handleClick)="createProvider()"></app-create-button>
+  </app-search-bar>
+
+  <app-providers-table
+    (editProvider)="goToDetail()"
+    (deleteProvider)="deleteProvider()"
+  ></app-providers-table>
+
+</div>

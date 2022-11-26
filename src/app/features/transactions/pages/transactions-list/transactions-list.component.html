@@ -1,1 +1,14 @@
-<p>transactions-list works!</p>
+<div class="p-5">
+  <app-content-table-header [amount]="250" [title]="'Transacciones'" [description]="'Transacciones registrados'" ></app-content-table-header>
+
+  <app-search-bar [title]="'Buscar transaccion'"
+                  [placeholder]="'Buscar por nombre, correo electronico, telefono, ciudad...'">
+    <app-create-button [buttonTitle]="'Nueva Transaccion'" (handleClick)="createTransaction()"></app-create-button>
+  </app-search-bar>
+
+  <app-transactions-table
+    (editTransaction)="goToDetail()"
+    (deleteTransaction)="deleteTransaction()"
+  ></app-transactions-table>
+
+</div>

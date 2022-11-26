@@ -12,4 +12,15 @@ export class TransactionsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  createTransaction() {
+    alert('create transaction')
+  }
+
+  deleteTransaction() {
+    alert("delete transaction")
+  }
+
+  goToDetail() {
+    alert('transaction detail')
+  }
 }

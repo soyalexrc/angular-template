@@ -1,0 +1,14 @@
+<div class="p-5">
+  <app-content-table-header [amount]="250" [title]="'Clientes'" [description]="'Clientes registrados'" ></app-content-table-header>
+
+  <app-search-bar [title]="'Buscar cliente'"
+                  [placeholder]="'Buscar por nombre, correo electronico, telefono, ciudad...'">
+    <app-create-button [buttonTitle]="'Nuevo Cliente'" (handleClick)="createClient()"></app-create-button>
+  </app-search-bar>
+
+  <app-clients-table
+    (editClient)="goToDetail()"
+    (deleteClient)="deleteClient()"
+  ></app-clients-table>
+
+</div>

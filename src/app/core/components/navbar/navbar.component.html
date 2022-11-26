@@ -10,14 +10,28 @@
     <mat-menu #notificationsMenu="matMenu" class="notifications-menu" (closed)="handleNotificationsClosed($event)">
       <button mat-menu-item>Item 1</button>
       <button mat-menu-item>Item 2</button>
+      <button mat-menu-item>Item 3</button>
+      <button mat-menu-item>Item 4</button>
+      <button mat-menu-item>Item 5</button>
+      <button mat-menu-item>Item 6</button>
+      <button mat-menu-item>Item 7</button>
+      <button mat-menu-item>Item 8</button>
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+      <button mat-menu-item>Item 3</button>
+      <button mat-menu-item>Item 4</button>
+      <button mat-menu-item>Item 5</button>
+      <button mat-menu-item>Item 6</button>
+      <button mat-menu-item>Item 7</button>
+      <button mat-menu-item>Item 8</button>
     </mat-menu>
 
     <button mat-icon-button [matMenuTriggerFor]="profileNMenu">
       <mat-icon>person</mat-icon>
     </button>
-    <mat-menu #profileNMenu="matMenu">
-      <button mat-menu-item>Item 1</button>
-      <button mat-menu-item>Item 2</button>
+    <mat-menu #profileNMenu="matMenu" class="profile-menu">
+      <button mat-menu-item>Configuración</button>
+      <button mat-menu-item>Cerrar sesión</button>
     </mat-menu>
   </div>
 
