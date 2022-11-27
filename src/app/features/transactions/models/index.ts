@@ -1,13 +1,19 @@
 export interface Transaction {
-  name: string;
-  email: string;
-  totalSold: number;
-  phone: string;
-  img: string;
-  country: string;
-  city: string;
-  document: string;
-  address: string;
-  addressComplement: string;
+  code: string;
+  title: string;
+  date: string;
+  evidence: any[];
+  coin: string;
+  hasClient: boolean;
+  hasOrder: boolean;
+  hasProvider: boolean;
+  hasService: boolean;
+  isIsolatedTransaction: boolean;
+  order: object | null;
+  provider: object | null;
+  service: object | null;
+  client: object | null
+  value: number;
+  type: string;
   description: string;
 }

@@ -1,0 +1,91 @@
+<div class="table mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" multiTemplateDataRows>
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nombre</th>
+      <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+    </ng-container>
+
+    <!-- Phone Column -->
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef> Telefono / Whatsapp</th>
+      <td mat-cell *matCellDef="let row"> {{row.phone}} </td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Correo electronico</th>
+      <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+    </ng-container>
+
+    <!-- Total sold Column -->
+    <ng-container matColumnDef="totalSold">
+      <th mat-header-cell *matHeaderCellDef> Saldo total de venta</th>
+      <td mat-cell *matCellDef="let row"> {{row.totalSold | currency}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="expand">
+      <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button aria-label="expand row"
+                (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+          <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+          <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="edit client" (click)="editProduct.emit()">
+          <mat-icon color="primary">edit</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="edit client" (click)="deleteProduct.emit()">
+          <mat-icon style="color: red">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+        <mat-divider class="divider" *ngIf="element === expandedElement"></mat-divider>
+        <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+          <img [src]="element.img" alt="Foto de usuario" class="client-img"
+               onerror="this.src='assets/img/user-placeholder.png'">
+          <div>
+            <p><b>Pais:</b> <span class="mx-3">{{element.country}}</span></p>
+            <p><b>Ciudad:</b> <span class="mx-3">{{element.city}}</span></p>
+            <p><b>Direccion:</b> <span class="mx-3">{{element.address}}</span></p>
+            <p><b>Complemento:</b> <span class="mx-3">{{element.addressComplement}}</span></p>
+            <p>{{element.description}}</p>
+          </div>
+          <div style="display: flex; flex-direction: column">
+            <button mat-raised-button style="margin-bottom: .5rem">
+              <div class="message-icon">
+                <img src="assets/icons/whatsapp-icon.webp" alt="">
+                <p>Enviar Whatsapp</p>
+              </div>
+            </button>
+            <button mat-raised-button style="margin-bottom: .5rem">
+              <div class="message-icon">
+                <img src="assets/icons/mail.webp" alt="">
+                <p>Enviar Correo</p>
+              </div>
+            </button>
+            <button mat-raised-button disabled>
+              <div class="message-icon">
+                <img src="assets/icons/call.webp" alt="">
+                <p>Llamar</p>
+              </div>
+            </button>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+    <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;"
+        class="example-element-row"
+        [class.example-expanded-row]="expandedElement === element"
+        (click)="expandedElement = expandedElement === element ? null : element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>

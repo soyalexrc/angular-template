@@ -1,1 +1,14 @@
-<p>products-list works!</p>
+<div class="p-5">
+  <app-content-table-header [amount]="250" [title]="'Productos'" [description]="'Productos registrados'" ></app-content-table-header>
+
+  <app-search-bar [title]="'Buscar producto'"
+                  [placeholder]="'Buscar por nombre, correo electronico, telefono, ciudad...'">
+    <app-create-button [buttonTitle]="'Nuevo Producto'" (handleClick)="createProduct()"></app-create-button>
+  </app-search-bar>
+
+  <app-products-table
+    (editProduct)="goToDetail()"
+    (deleteProduct)="deleteProduct()"
+  ></app-products-table>
+
+</div>

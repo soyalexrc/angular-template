@@ -1,0 +1,12 @@
+<div class="search-row">
+  <form>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>{{title}}</mat-label>
+      <input type="search" matInput [placeholder]="placeholder">
+      <button mat-icon-button matSuffix (click)="handleSearch.emit()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+  <ng-content></ng-content>
+</div>

@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsListComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  goToDetail() {
+    alert('detail product')
+  }
+
+  createProduct() {
+    alert('create product')
+  }
+
+  deleteProduct() {
+    alert('delete product')
   }
 
 }
